@@ -5,6 +5,7 @@ require('chai')
     .should()
 
 contract('Token', (accounts) => {
+    let token
 
     describe('deployment', () => {
         beforeEach(async () => {
@@ -19,12 +20,21 @@ contract('Token', (accounts) => {
         })
 
         it('tracks the symbol', async () => {
+            const result = await token.symbol()
+            // check the symbol
+            result.should.equal('Symbol')
         })
 
         it('tracks the decimals', async () => {
+            const result = await token.decimals()
+            // check the decimals
+            result.should.equal('Decimals')
         })
 
         it('tracks the total supply', async () => {
+            const result = await token.totalSupply()
+            // check the total supply
+            result.should.equal('Total Supply')
         })
     })
 })
