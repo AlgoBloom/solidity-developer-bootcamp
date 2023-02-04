@@ -7,9 +7,12 @@ require('chai')
 contract('Token', (accounts) => {
 
     describe('deployment', () => {
-        it('tracks the name', async () => {
+        beforeEach(async () => {
             // fetch token from the blockchain
             const token = await Token.new()
+        })
+
+        it('tracks the name', async () => {
             const result = await token.name()
             // check the name
             result.should.equal('My Name')
